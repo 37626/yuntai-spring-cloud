@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.6.RELEASE</version>
+    </parent>
+    <groupId>com.yuntai</groupId>
+    <artifactId>yuntai-spring-cloud</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>yuntai-spring-cloud</name>
+    <description>Main Project of YunTai</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <cloud.version>0.0.1-SNAPSHOT</cloud.version>
+        <druid.version>1.1.18</druid.version>
+        <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
+        <alibaba-cloud.version>2.2.0.RELEASE</alibaba-cloud.version>
+        <fastjson.version>1.2.58</fastjson.version>
+        <!--mybatis-plus依赖引入-->
+        <mybatis-plus.version>3.3.0</mybatis-plus.version>
+        <!-- 动态数据源 -->
+        <dynamic-plus.version>2.5.7</dynamic-plus.version>
+        <!-- knife4j -->
+        <knife4j.version>2.0.0</knife4j.version>
+        <!-- hutool工具集 -->
+        <hutool.version>5.2.1</hutool.version>
+        <!-- order-api版本 -->
+        <order-api.version>0.0.1-SNAPSHOT</order-api.version>
+    </properties>
+
+    <modules>
+        <module>base</module>
+        <module>core</module>
+        <module>log</module>
+        <module>cloud</module>
+        <module>gateway-web</module>
+        <module>main-web</module>
+        <module>auth-web</module>
+    </modules>
+
+    <!-- 统一依赖管理-->
+    <dependencyManagement>
+        <dependencies>
+            <!--连接池-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!--数据库驱动-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <scope>runtime</scope>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!--spring cloud -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--spring cloud -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${alibaba-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--fastjson-->
+            <dependency>
+                <artifactId>fastjson</artifactId>
+                <groupId>com.alibaba</groupId>
+                <version>${fastjson.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+</project>
