@@ -1,0 +1,18 @@
+spring:
+  profiles:
+    active: '@profiles.active@'
+  application:
+    name: gateway
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    # nacos-配置
+    nacos:
+      # 配置中心
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        encode: UTF-8
+        # 命名空间的id
+        namespace: local
+        group: DEFAULT_GROUP
