@@ -2,7 +2,7 @@ spring:
   profiles:
     active: '@profiles.active@'
   application:
-    name: main-web
+    name: auth-web
   cloud:
     # nacos-配置
     nacos:

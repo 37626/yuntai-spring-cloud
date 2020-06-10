@@ -18,12 +18,12 @@ import java.net.UnknownHostException;
 @EnableSwagger2
 @ConditionalOnClass(SpringfoxWebMvcConfiguration.class)
 @MapperScan("com.yuntai.web.mapper")
-public class MainWebApplication {
+public class AuthWebApplication {
 
-    private static Logger logger= LoggerFactory.getLogger( MainWebApplication.class);
+    private static Logger logger= LoggerFactory.getLogger( AuthWebApplication.class);
 
     public static void main(String[] args) throws UnknownHostException {
-        ConfigurableApplicationContext application = SpringApplication.run( MainWebApplication.class, args );
+        ConfigurableApplicationContext application = SpringApplication.run( AuthWebApplication.class, args );
         Environment env = application.getEnvironment();
         logger.info("\n----------------------------------------------------------\n\t" +
                         "Application '{}' is running! Access URLs:\n\t" +
