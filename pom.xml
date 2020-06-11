@@ -43,6 +43,15 @@
         <module>auth-web</module>
     </modules>
 
+    <repositories>
+        <!--阿里云代理-->
+        <repository>
+            <id>aliyun</id>
+            <name>aliyun</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+        </repository>
+    </repositories>
+
     <!-- 统一依赖管理-->
     <dependencyManagement>
         <dependencies>

@@ -3770,3 +3770,10 @@ java.lang.NullPointerException: null
 2020-06-10 18:55:12.209  INFO 21995 --- [http-nio-10001-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2020-06-10 18:55:12.244  INFO 21995 --- [http-nio-10001-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 35 ms
 2020-06-10 18:55:21.943  WARN 21995 --- [http-nio-10001-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2020-06-10 18:56:58.805  INFO 21995 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2020-06-10 18:56:58.844  INFO 21995 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2020-06-10 18:56:58.846  INFO 21995 --- [SpringContextShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+2020-06-10 18:56:58.847  INFO 21995 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : [BEAT] removing beat: DEFAULT_GROUP@@auth-web:192.168.31.58:10001 from beat map.
+2020-06-10 18:56:58.847  INFO 21995 --- [SpringContextShutdownHook] com.alibaba.nacos.client.naming          : [DEREGISTER-SERVICE] local deregistering service DEFAULT_GROUP@@auth-web with instance: {"clusterName":"DEFAULT","enabled":true,"ephemeral":true,"healthy":true,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"instanceIdGenerator":"simple","ip":"192.168.31.58","ipDeleteTimeout":30000,"metadata":{},"port":10001,"weight":1.0}
+2020-06-10 18:56:58.856  INFO 21995 --- [SpringContextShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+2020-06-10 18:56:58.861  INFO 21995 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
