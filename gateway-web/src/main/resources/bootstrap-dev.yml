@@ -1,0 +1,10 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    # nacos-配置
+    nacos:
+      # 配置中心
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: dev

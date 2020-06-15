@@ -17,3 +17,4 @@ spring:
         namespace: local
         group: DEFAULT_GROUP
 
+

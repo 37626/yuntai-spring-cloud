@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    # nacos-配置
+    nacos:
+      # 配置中心
+      config:
+        # 是否开启配置中心，默认true
+        server-addr: 192.168.31.100:8848
+        # 命名空间的id
+        namespace: dev
+

@@ -2,11 +2,13 @@ package com.yuntai.web.controller;
 
 import com.yuntai.web.domain.entity.YtUser;
 import com.yuntai.web.service.YtUserService;
-import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @author yuanyemustang
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(value = "/test")
+@Slf4j
 public class TestController {
 
     @Autowired
@@ -27,14 +30,22 @@ public class TestController {
     };
 
     @GetMapping(value = "/yuntai")
-    public void yuntai(){
+    public String yuntai(List<Integer> i) throws Exception {
         YtUser user = new YtUser();
-        user.setName( "呼呼哈晚点" );
+        user.setAccount( "呼呼哈晚点" );
         user.setAction( 1 );
-        //加个人
-        userService.testTransaction(user);
-        //记个账
+        userService.add(user);
+        userService.getDetail(user.getId());
+        return "";
+    };
 
+    @GetMapping(value = "/log")
+    public void logTest() throws Exception {
+        //级别从低至高，可在nacos里面通过level动态调节
+        log.debug( "======debug======" );
+        log.info( "======info======" );
+        log.warn( "======warn======" );
+        log.error( "======error======" );
     };
 
 }

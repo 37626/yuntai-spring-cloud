@@ -6,18 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 
 /**
- * <p>
- *  前端控制器
- * </p>
- *
- * @author yuntai
- * @since 2020-05-29
- */
+* @Description:
+* @Author: 袁野
+* @Company: yuntai
+* @Date: 2020年06月12日
+*/
 @Controller
 @RequestMapping("/yt-user")
 public class YtUserController {
-
-
-
 
 }
