@@ -60,10 +60,10 @@ public class MysqlGenerator {
 
         // TODO 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://127.0.0.1:3306/yuntai-cloud?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=UTC");
-        dsc.setDriverName("com.mysql.jdbc.Driver");
-        dsc.setUsername("root");
-        dsc.setPassword("123456");
+        dsc.setUrl("jdbc:mysql://localhost:3307/shiro?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false");
+        dsc.setDriverName("com.mysql.cj.jdbc.Driver");
+        dsc.setUsername("lem");
+        dsc.setPassword("5758");
         mpg.setDataSource(dsc);
 
         // TODO 包配置
@@ -116,7 +116,7 @@ public class MysqlGenerator {
         // 设置逻辑删除键
         strategy.setLogicDeleteFieldName("deleted");
         // TODO 指定生成的bean的数据库表名
-        strategy.setInclude("yt_user");
+        strategy.setInclude("yt_perms_role");
         //strategy.setSuperEntityColumns("id");
         // 驼峰转连字符
         strategy.setControllerMappingHyphenStyle(true);

@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
@@ -28,6 +29,13 @@ public class JwtFilter extends GenericFilterBean {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
+        HttpServletResponse resp = (HttpServletResponse)servletResponse;
+        System.err.println(req.getRequestURL());
+        if(!req.getRequestURI().equals("/login")){
+            filterChain.doFilter(servletRequest,servletResponse);
+            return ;
+        }
+
         String jwtToken = req.getHeader("authorization");
         Jws<Claims> jws = Jwts.parser().setSigningKey("javaboy")
                 .parseClaimsJws(jwtToken.replace("Bearer", ""));

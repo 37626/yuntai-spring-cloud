@@ -1,6 +1,11 @@
 spring:
-  profiles:
-    active: '@profiles.active@'
+  datasource:
+    url: "jdbc:mysql://localhost:3307/shiro?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false"
+    username: "lem"
+    password: "5758"
+    driver-class-name: "com.mysql.jdbc.Driver"
+##  profiles:
+##    active: '@profiles.active@'
   application:
     name: auth-web
   cloud:
