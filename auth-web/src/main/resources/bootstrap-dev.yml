@@ -5,6 +5,6 @@ spring:
       # 配置中心
       config:
         # 是否开启配置中心，默认true
-        server-addr: 127.0.0.1:8848
+        server-addr: 192.168.31.100:8848
         namespace: dev
 

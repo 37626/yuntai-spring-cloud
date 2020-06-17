@@ -27,7 +27,7 @@ public class YtUserServiceImpl extends ServiceImpl<YtUserMapper, YtUser> impleme
     */
     @Override
     public YtUser add(YtUser user) {
-        this.add( user );
+        this.save( user );
         return user;
     }
 
@@ -77,7 +77,7 @@ public class YtUserServiceImpl extends ServiceImpl<YtUserMapper, YtUser> impleme
     * @Date: 2020年06月12日
     */
     @Override
-    public List<YtUser> getList(YtUser user) {
+    public List<YtUser> getList(YtUser user) throws Exception {
         LambdaQueryWrapper<YtUser> queryWrapper = new LambdaQueryWrapper();
         queryWrapper.eq( YtUser::getAccount,user.getAccount());
         return this.list( queryWrapper );

@@ -51,7 +51,7 @@ public interface YtUserService extends IService<YtUser> {
     * @Company: yuntai
     * @Date: 2020年06月12日 
     */ 
-    List<YtUser> getList(YtUser user);
+    List<YtUser> getList(YtUser user) throws Exception;
 
     /** 
     * @Description:

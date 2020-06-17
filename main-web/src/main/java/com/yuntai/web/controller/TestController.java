@@ -5,8 +5,10 @@ import com.yuntai.web.service.YtUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import response.BaseResponse;
 
 import java.util.List;
 
@@ -29,17 +31,51 @@ public class TestController {
         return "hello YT";
     };
 
-    @GetMapping(value = "/yuntai")
-    public String yuntai(List<Integer> i) throws Exception {
+    @PostMapping(value = "/getDetail")
+    public BaseResponse getDetail(Integer i) throws Exception {
         YtUser user = new YtUser();
         user.setAccount( "呼呼哈晚点" );
         user.setAction( 1 );
-        userService.add(user);
-        userService.getDetail(user.getId());
-        return "";
+        YtUser userResult = userService.getDetail(user.getId());
+        return BaseResponse.ok( userResult );
     };
 
-    @GetMapping(value = "/log")
+    @PostMapping(value = "/getList")
+    public BaseResponse<List<YtUser>> getList() throws Exception {
+        YtUser user = new YtUser();
+        user.setAccount( "呼呼哈晚点" );
+        user.setAction( 1 );
+        return BaseResponse.ok( userService.getList(user) );
+    };
+
+    @PostMapping(value = "/add")
+    public BaseResponse add(Integer i) throws Exception {
+        YtUser user = new YtUser();
+        user.setAccount( "呼呼哈晚点" );
+        user.setAction( 1 );
+        YtUser userResult = userService.add(user);
+        return BaseResponse.ok( userResult );
+    };
+
+    /*
+     * @Description: 测试异常
+     * @Author: YuanYe
+     * @Date: 2020/6/17 2:12 下午
+     * @Param:
+     * @Return: * @return: response.BaseResponse
+     **/
+    @PostMapping(value = "/ex")
+    public BaseResponse ex() throws Exception {
+        int i = 1/0;
+        return BaseResponse.ok( "返回成功" );
+    };
+
+    @PostMapping(value = "/testHandler")
+    public void testExceptionHandler()  {
+        throw new NullPointerException();
+    };
+
+    @PostMapping(value = "/log")
     public void logTest() throws Exception {
         //级别从低至高，可在nacos里面通过level动态调节
         log.debug( "======debug======" );
