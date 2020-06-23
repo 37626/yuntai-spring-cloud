@@ -25,37 +25,10 @@ public class UserRealm extends AuthorizingRealm {
     YtPermsServiceImpl permsService;
 
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        //获取请求对象
-        //HttpServletRequest  request =  ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-       //获取uri
-        //String uri =  request.getRequestURI();
-        //System.err.println(uri);
-
-
-        //String []  is= uri.split("/");
-
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         //获取登录认证后的登录对象
         Subject subjct = SecurityUtils.getSubject();
         User user = (User)subjct.getPrincipal();
-        //查询角色
-       List<YtRole> roleList =  roleService.getBaseMapper().getRole(user.getUsername());
-        //查询权限
-        List<YtPerms> permsList = permsService.getBaseMapper().getPerms(roleList);
-        if(roleList.size()!=0){
-            System.err.println("有角色");
-            roleList.forEach(role->{
-                info.addRole(role.getRoleId());
-
-            });
-        }
-        if(permsList.size()!=0){
-            System.err.println("有权限");
-            permsList.forEach(perms->{
-                info.addStringPermission(perms.getPermsValue());
-
-            });
-        }
 
         System.err.println("授权认证");
 

@@ -39,7 +39,7 @@ public class MysqlGenerator {
         String moduleName = "/auth-web/";
         gc.setOutputDir(projectPath + moduleName + "/src/main/java");
         // TODO 设置用户名
-        gc.setAuthor("yuntai");
+        gc.setAuthor("LiuErMao");
         gc.setOpen(true);
         // service 命名方式
         gc.setServiceName("%sService");
@@ -60,10 +60,10 @@ public class MysqlGenerator {
 
         // TODO 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3307/shiro?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false");
+        dsc.setUrl("jdbc:mysql://192.168.31.102:3308/yuntai-cloud?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
-        dsc.setUsername("lem");
-        dsc.setPassword("5758");
+        dsc.setUsername("root");
+        dsc.setPassword("root");
         mpg.setDataSource(dsc);
 
         // TODO 包配置
@@ -96,11 +96,11 @@ public class MysqlGenerator {
             }
         };
         List<FileOutConfig> focList = new ArrayList<>();
-        focList.add(new FileOutConfig("/templates/mapper.xml.ftl") {
+        focList.add(new FileOutConfig(moduleName+"/templates/mapper.xml.ftl") {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输入文件名称
-                return projectPath + "/src/main/resources/mapper/"
+                return projectPath + "/src/main/resources/mapper"
                         + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
@@ -113,10 +113,15 @@ public class MysqlGenerator {
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming( NamingStrategy.underline_to_camel);
         strategy.setEntityLombokModel(true);
+        /*strategy.setentit*/
+        //strategy.setRestControllerStyle(true);
         // 设置逻辑删除键
         strategy.setLogicDeleteFieldName("deleted");
         // TODO 指定生成的bean的数据库表名
-        strategy.setInclude("yt_perms_role");
+        strategy.setInclude("yt_sys_menu");
+        // 去掉前缀
+        strategy.setTablePrefix("YT");
+        strategy.setTablePrefix();
         //strategy.setSuperEntityColumns("id");
         // 驼峰转连字符
         strategy.setControllerMappingHyphenStyle(true);

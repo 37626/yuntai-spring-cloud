@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: "jdbc:mysql://localhost:3307/shiro?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false"
-    username: "lem"
-    password: "5758"
+    url: "jdbc:mysql://192.168.31.102:3308/yuntai-cloud?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false"
+    username: "root"
+    password: "root"
     driver-class-name: "com.mysql.jdbc.Driver"
 ##  profiles:
 ##    active: '@profiles.active@'

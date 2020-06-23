@@ -16,6 +16,4 @@ import java.util.List;
  */
 public interface YtPermsMapper extends BaseMapper<YtPerms> {
 
-    public List<YtPerms> getPerms(List<YtRole> roleList);
-
 }

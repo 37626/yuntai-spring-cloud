@@ -41,7 +41,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/MyLogin",
                         "/abc",
                         "/yt-role/**",
-                        "/yt-perms/**"
+                        "/yt-perms/**",
+                        "/sysMenu/**"
                 );
     }
 
